@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bot App</title>
+</head>
+<body>
+	<form class="form" action="" method="POST" role="form" novalidate>
+		{{ form.csrf_token }}
+		{{ form.field(type="text")  }}
+		{{ form.send() }}
+	</form>
+	</br>
+
+		<h3> {{ titulo }} </h3>	
+
+		{% for i in resultado %}
+
+			<li>
+				{{ i.label }} : 
+				{% if titulo == 'Listado de enlaces principales' %}
+					<a href="{{ i.value.input.text }}"> Ir al sitio</a>
+				{% else %}
+				{{ i.value.input.text }}
+				{% endif %}
+			</li>
+					
+		{% endfor %}
+</body>
+</html>
